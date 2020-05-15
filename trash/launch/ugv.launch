@@ -1,0 +1,46 @@
+<launch>
+	<param name = "/diff_drive_controller/left_wheel" type = "string" value = "Left" />
+	<param name = "/diff_drive_controller/right_wheel" type = "string" value = "Right" />
+	<rosparam param = "/diff_drive_controller/pose_covariance_diagonal">[0.01,0.01,0.01,0.1,0.1,0.1]</rosparam>
+	<rosparam param = "/diff_drive_controller/twist_covariance_diagonal">[0.01,0.01,0.01,0.1,0.1,0.1]</rosparam>
+	<param name = "/diff_drive_controller/type" type = "string" value = "diff_drive_controller/DiffDriveController" />
+	<param name = "/diff_drive_controller/enable_odom_tf" type = "bool"  value = "true" />
+	<param name = "/diff_drive_controller/publish_cmd" type = "bool" value = "true" />
+    <param name = "/diff_drive_controller/wheel_separation" type = "double" value = "0.4826" />
+	<param name = "/diff_drive_controller/wheel_radius" type = "double" value = "0.0725" />
+
+	<node pkg = "controller_manager"
+		type = "spawner"
+		name = "controller_manager_spawner"
+		args = "diff_drive_controller" />
+	
+	<node pkg = "ugv" 
+	      type = "UGVinterface"
+	      name = "UGVinterface_node">
+		<remap from="diff_drive_controller/cmd_vel" to="cmd_vel" />
+		<remap from="diff_drive_controller/odom" to="odom" />
+		<remap from="diff_drive_controller/cmd_vel_out" to="cmd_vel_out" />
+	</node>
+    
+    <node pkg="tf" type="static_transform_publisher" name="laser" args="0.362 0 0.29 0 0 0  /base_link /neato_laser  100"/>
+      
+    <node pkg = "xv_11_laser_driver"
+	    type = "neato_laser_publisher"
+ 	    name = "neato_laser_publisher"
+	    args = "_port:=/dev/ttyACM1 _firmware_version:=2">
+	</node>
+
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="range_filter">
+		<rosparam command="load" file="$(find trash)/param/range_filter.yaml" />
+	</node>
+
+	<node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    	<param name="base_frame" value="base_link"/>
+    	<param name="odom_frame" value="odom"/>
+    	<remap from="scan" to="scan_filtered"/>
+    	<param name="xmin" value="-1.0"/>
+    	<param name="ymin" value="-1.0"/>
+    	<param name="xmax" value="1.0"/>
+    	<param name="ymax" value="1.0"/>
+  	</node>
+</launch>

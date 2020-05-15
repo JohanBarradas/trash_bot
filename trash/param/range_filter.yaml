@@ -1,0 +1,8 @@
+scan_filter_chain:
+- name: angular #range
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace #LaserScanRangeFilter
+  params:
+    #lower_threshold: 0.5588
+    #upper_threshold: .inf
+    lower_angle: 0.785
+    upper_angle: 4.7124 

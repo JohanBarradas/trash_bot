@@ -1,0 +1,11 @@
+obstacle_range : 4.5
+raytrace_range : 1.0
+footprint: [[0.34,0.34], [-0.34,0.34], [-0.34, -0.34], [0.34, -0.34]]
+inflation_radius: 3.0
+cost_scaling_factor: 1.0
+map_type: costmap
+
+observation_sources: neato_laser_publisher
+
+neato_laser_publisher: {sensor_frame: neato_laser, data_type: LaserScan, topic: scan_filtered, marking: true, clearing: true}
+
