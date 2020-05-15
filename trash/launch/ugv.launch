@@ -30,8 +30,8 @@
 	    args = "_port:=/dev/ttyACM1 _firmware_version:=2">
 	</node>
 
-    <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="range_filter">
-		<rosparam command="load" file="$(find trash)/param/range_filter.yaml" />
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="angular_filter">
+		<rosparam command="load" file="$(find trash)/param/angular_filter.yaml" />
 	</node>
 
 	<node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
