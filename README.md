@@ -1,4 +1,4 @@
-# trash_bot
+# Trash Collection Robot MK.I
 
 Code for a trash collecting robot, includes autonomous navigation.
 
@@ -11,6 +11,7 @@ Code for a trash collecting robot, includes autonomous navigation.
 - 1 12V DC motor (for brush/collecting)
 - 2 DC servo motors
 - 1 L298N Stepper Motor Driver Controller Board Dual H Bridge Module
+- 1 Songle 5V Single Relay Module (D25)
 
 ###### This code was made in collaboration with Shreyosi Endow and Chris Collander
 
