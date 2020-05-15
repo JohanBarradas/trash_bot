@@ -1,7 +1,7 @@
 # trash_bot
 
-##Code for a trash collecting robot, includes autonomous navigation.
-######The essential hardware components for this project are as follows:
+## Code for a trash collecting robot, includes autonomous navigation.
+###### The essential hardware components for this project are as follows:
 - 1 Nvidia Jetson Nano
 - 1 Roboteq SDC2130 motor controller
 - 1 Neato LIDAR Laser Distance Sensor LDS xv Series xv-11
@@ -10,9 +10,9 @@
 - 2 DC servo motors
 - 1 L298N Stepper Motor Driver Controller Board Dual H Bridge Module
 
-######This code was made in collaboration with Shreyosi Endow and Chris Collander
+###### This code was made in collaboration with Shreyosi Endow and Chris Collander
 
-######To run:
+###### To run:
 
 1) Have the **Robot Operating System(ROS)** properly installed and setup 
 2) clone this repository to your catkin workspace
@@ -30,4 +30,4 @@ To turn on the Dispensing mechanism:
 1) Make sure the motor driver is properly connected to the Jetson Nano (on GPIO)
 2) run yeet.py located in the python&helpfulscripts folder
 
-######NOTE: stay clear from the back of the bot when dispensing
+###### NOTE: stay clear from the back of the bot when dispensing
