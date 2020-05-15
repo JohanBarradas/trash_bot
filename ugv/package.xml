@@ -8,6 +8,11 @@
   
   <build_depend>message_generation</build_depend>
   <build_depend>diff_drive_controller</build_depend>
+  
+  <build_depend>xv_11_laser_driver</build_depend>
+  <run_depend>xv_11_laser_driver</run_depend>
+  <run_depend>gmapping</run_depend>
+  
   <build_depend>tf</build_depend>
   <run_depend>tf</run_depend>
   <build_depend>hardware_interface</build_depend>
