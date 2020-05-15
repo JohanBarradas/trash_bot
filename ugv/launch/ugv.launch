@@ -9,7 +9,7 @@
         
        <!-- <param name = "/use_sim_time" value="True"/> -->
 	
-	<!-- These values fit our robot. Adjust to match yours (in meters) -->
+	<!--Adjust this values according to your robot (in meters) -->
 	<param name = "/diff_drive_controller/wheel_separation" type = "double" value = "0.4826" />
 	<param name = "/diff_drive_controller/wheel_radius" type = "double" value = "0.0725" />
 
@@ -26,25 +26,5 @@
 		
 		<!-- Using default parameter settings. Place any necessary parameter changes here -->
 	</node>
-        <node pkg = "robot_setup_tf"
-              type = "tf_broadcaster"
-              name = "tf_broadcaster">
-        </node>
-        <remap from="scan" to="scan_raw"/>
-        <node pkg = "xv_11_laser_driver"
-	      type = "neato_laser_publisher"
- 	      name = "neato_laser_publisher"
-	      args = "_port:=/dev/ttyACM1 _firmware_version:=2">
-	</node>
-        <!-- filter the back of bot -->
-        <node pkg="laser_filters" 
-		type="scan_to_scan_filter_chain" output="screen"
-		 name="laser_filter">
-		<rosparam command="load" file="/home/lit/catkin_ws/src/ugv/angular_filter.yaml" />
-		<remap from="scan_filtered" to="scan"/>
-	</node>
-<!--	<node pkg = "gmapping"
-	      type = "slam_gmapping"
-	      name = "slam_gmapping">
-        </node> -->
+
 </launch>
