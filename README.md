@@ -1,4 +1,4 @@
-# Trash Collection Robot MK.I
+# Trash Collecting Robot MK.I
 
 Code for a trash collecting robot, includes autonomous navigation.
 
