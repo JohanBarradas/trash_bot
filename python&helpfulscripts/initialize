@@ -1,0 +1,11 @@
+#!/bin/bash
+#initialization script for trash bot
+
+#give power to the ports
+sudo chmod 777 /dev/ttyACM0
+sudo chmod 777 /dev/ttyACM1
+#source the bash
+source ~/.bashrc
+sudo python3 stop_yeet.py
+roscore
+
